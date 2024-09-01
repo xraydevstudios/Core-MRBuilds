@@ -95,8 +95,8 @@ float4 WaterPS(PS_Input input): COLOR
     float frensel = 1.0f - dot(vpnorm, normal);
 
     float fRdotL = max(dot(normalize(lpnorm + vpnorm), normal), 0);    
-    float VdotR = pow(fRdotL, 512.0f);
-    float3 specular = float3(0.0f, 0.0f, 0.0f) * VdotR;
+    float VdotR = pow(fRdotL, 128.0f);
+    float3 specular = float3(0.5f, 0.5f, 0.5f) * VdotR;
 	
 	float scDepth = tex2D(depthMap, float2(proj_tc.x, 1.0f - proj_tc.y)).r;
 	float2 scDepthCoord = mul(float4(0, 0, scDepth, 1), matInvProj).zw;
